@@ -1,0 +1,28 @@
+.faq-section { padding: clamp(76px, 10vw, 142px) 0; background: var(--bg, #101010); color: var(--text, #F5F0E8); border-bottom: 1px solid var(--line, #33322f); scroll-margin-top: 24px; }
+.faq-shell { width: min(var(--shell, 1240px), calc(100% - var(--gutter, 5vw) * 2)); margin-inline: auto; display: grid; grid-template-columns: minmax(0, .78fr) minmax(0, 1.22fr); gap: clamp(35px, 7vw, 100px); align-items: start; }
+.faq-intro { position: sticky; top: 110px; }
+.faq-eyebrow { display: flex; align-items: center; gap: 9px; margin: 0 0 25px; color: var(--muted, #aaa49b); font-size: 9px; font-weight: 700; letter-spacing: .15em; }
+.faq-eyebrow > span { width: 7px; height: 7px; background: var(--orange, #FF5B24); transform: rotate(45deg); }
+.faq-intro h2 { margin: 0; max-width: 570px; font-family: var(--font-display, Impact, sans-serif); font-size: clamp(55px, 8vw, 100px); line-height: .83; letter-spacing: -.035em; overflow-wrap: anywhere; }
+.faq-intro h2 em { color: var(--orange, #FF5B24); font-style: normal; }
+.faq-intro__description { max-width: 310px; margin: 25px 0 0; color: var(--muted, #aaa49b); font-size: 13px; line-height: 1.75; }
+.faq-intro__note { display: flex; align-items: center; gap: 17px; margin-top: clamp(35px, 6vw, 72px); padding-top: 18px; border-top: 1px solid var(--line, #33322f); }
+.faq-intro__note > span { color: var(--lime, #D8FF00); font-family: var(--font-display, Impact, sans-serif); font-size: 24px; font-weight: 800; line-height: .9; }
+.faq-intro__note p { margin: 0; color: var(--muted, #aaa49b); font-size: 10px; line-height: 1.6; }
+.faq-list { border-top: 1px solid var(--line-strong, #716b63); }
+.faq-item { border-bottom: 1px solid var(--line, #33322f); }
+.faq-item__heading { margin: 0; font-size: inherit; }
+.faq-item__trigger { width: 100%; display: grid; grid-template-columns: 34px minmax(0, 1fr) 30px; align-items: center; gap: 14px; padding: 21px 0; border: 0; background: transparent; color: var(--text, #F5F0E8); text-align: left; cursor: pointer; }
+.faq-item__trigger:focus-visible { outline: 2px solid var(--lime, #D8FF00); outline-offset: 3px; }
+.faq-item__number { align-self: start; padding-top: 3px; color: var(--orange, #FF5B24); font-size: 9px; font-weight: 700; letter-spacing: .1em; }
+.faq-item__question { font-family: var(--font-display, Impact, sans-serif); font-size: clamp(19px, 2.1vw, 25px); line-height: 1.08; letter-spacing: -.01em; transition: color .18s ease; }
+.faq-item__indicator { display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid var(--line-strong, #716b63); color: var(--orange, #FF5B24); font-size: 19px; font-weight: 400; line-height: 1; transition: color .18s ease, background-color .18s ease, border-color .18s ease; }
+.faq-item__trigger:hover .faq-item__question, .faq-item.is-open .faq-item__question { color: var(--orange, #FF5B24); }
+.faq-item.is-open .faq-item__indicator { background: var(--orange, #FF5B24); border-color: var(--orange, #FF5B24); color: #101010; }
+.faq-item__panel[hidden] { display: none; }
+.faq-item__answer { padding: 0 44px 24px 48px; max-width: 650px; color: var(--muted, #aaa49b); font-size: 12px; line-height: 1.8; animation: faq-reveal .2s ease both; }
+.faq-item__answer a { color: var(--lime, #D8FF00); text-decoration: underline; text-underline-offset: 3px; }
+@keyframes faq-reveal { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 850px) { .faq-shell { grid-template-columns: 1fr; gap: 42px; } .faq-intro { position: static; } .faq-intro h2 { max-width: 700px; font-size: clamp(62px, 10vw, 95px); } .faq-intro__description { max-width: 440px; } .faq-intro__note { display: none; } }
+@media (max-width: 520px) { .faq-intro h2 { font-size: clamp(52px, 14vw, 74px); } .faq-item__trigger { grid-template-columns: 25px minmax(0, 1fr) 28px; gap: 10px; padding: 18px 0; } .faq-item__question { font-size: 20px; } .faq-item__answer { padding: 0 5px 22px 35px; font-size: 12px; } }
+@media (prefers-reduced-motion: reduce) { .faq-item__question, .faq-item__indicator { transition: none; } .faq-item__answer { animation: none; } }
